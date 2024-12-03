@@ -8,7 +8,7 @@ __license__ = "MIT"
 def main():
     """Solve day 3 puzzles"""
     with open("data/day_3.txt", encoding="ascii") as input_file:
-        puzzle_input = input_file.readline()
+        puzzle_input = input_file.read().rstrip()
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -54,8 +54,6 @@ def convert_char_to_complex(move):
             return 1 + 0j
         case "<":
             return -1 + 0j
-        case _:
-            return 0 + 0j
 
 
 if __name__ == "__main__":

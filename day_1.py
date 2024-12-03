@@ -8,7 +8,7 @@ __license__ = "MIT"
 def main():
     """Solve day 1 puzzles"""
     with open("data/day_1.txt", encoding="ascii") as input_file:
-        puzzle_input = input_file.readline()
+        puzzle_input = input_file.read().rstrip()
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
