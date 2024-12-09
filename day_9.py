@@ -11,7 +11,7 @@ from collections import defaultdict
 def main():
     """Solve day 9 puzzles."""
     with open("data/day_9.txt", encoding="ascii") as input_file:
-        puzzle_input = input_file.readlines()
+        puzzle_input = [line.rstrip() for line in input_file.readlines()]
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))

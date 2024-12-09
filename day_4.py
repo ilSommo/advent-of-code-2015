@@ -8,7 +8,7 @@ import hashlib
 
 
 def main():
-    """Solve day 4 puzzles"""
+    """Solve day 4 puzzles."""
     with open("data/day_4.txt", encoding="ascii") as input_file:
         puzzle_input = input_file.read().rstrip()
 
@@ -17,7 +17,7 @@ def main():
 
 
 def star_1(puzzle_input):
-    """Solve first puzzle"""
+    """Solve first puzzle."""
     answer = 0
 
     while not (
@@ -31,7 +31,7 @@ def star_1(puzzle_input):
 
 
 def star_2(puzzle_input):
-    """Solve second puzzle"""
+    """Solve second puzzle."""
     answer = 0
 
     while not (

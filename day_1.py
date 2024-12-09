@@ -6,7 +6,7 @@ __license__ = "MIT"
 
 
 def main():
-    """Solve day 1 puzzles"""
+    """Solve day 1 puzzles."""
     with open("data/day_1.txt", encoding="ascii") as input_file:
         puzzle_input = input_file.read().rstrip()
 
@@ -15,14 +15,14 @@ def main():
 
 
 def star_1(puzzle_input):
-    """Solve first puzzle"""
+    """Solve first puzzle."""
     floor = puzzle_input.count("(") - puzzle_input.count(")")
 
     return floor
 
 
 def star_2(puzzle_input):
-    """Solve second puzzle"""
+    """Solve second puzzle."""
     floor = 0
 
     for i, char in enumerate(puzzle_input):

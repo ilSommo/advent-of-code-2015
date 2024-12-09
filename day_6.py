@@ -10,14 +10,14 @@ import itertools
 def main():
     """Solve day 6 puzzles."""
     with open("data/day_6.txt", encoding="ascii") as input_file:
-        puzzle_input = input_file.readlines()
+        puzzle_input = [line.rstrip() for line in input_file.readlines()]
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
 
 
 def star_1(puzzle_input):
-    """Solve first puzzle"""
+    """Solve first puzzle."""
     grid = [1000 * [-1] for _ in range(1000)]
 
     for line in puzzle_input:
@@ -67,7 +67,7 @@ def star_2(puzzle_input):
 
 
 def parse(line):
-    """Parse an instruction line"""
+    """Parse an instruction line."""
     split_line = line.split()
     action, start, end = (
         split_line[-4],

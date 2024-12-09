@@ -8,20 +8,20 @@ __license__ = "MIT"
 def main():
     """Solve day 7 puzzles."""
     with open("data/day_7.txt", encoding="ascii") as input_file:
-        puzzle_input = input_file.readlines()
+        puzzle_input = [line.rstrip() for line in input_file.readlines()]
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
 
 
 def star_1(puzzle_input):
-    """Solve first puzzle"""
+    """Solve first puzzle."""
     wires = {}
     puzzle = puzzle_input.copy()
 
     while puzzle:
         line = puzzle.pop(0)
-        input_wires, output = line.rstrip().split(" -> ")
+        input_wires, output = line.split(" -> ")
         result = compute_instruction(wires, input_wires)
 
         if result is not None:
@@ -40,7 +40,7 @@ def star_2(puzzle_input):
 
     while puzzle:
         line = puzzle.pop(0)
-        input_wires, output = line.rstrip().split(" -> ")
+        input_wires, output = line.split(" -> ")
 
         if output != "b":
             result = compute_instruction(wires, input_wires)
