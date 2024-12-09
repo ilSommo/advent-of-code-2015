@@ -37,6 +37,7 @@ def star_2(puzzle_input):
 
 
 def look_and_say(sequence):
+    """Execute look and say process on sequence."""
     new_sequence = "".join(
         f"{len(list(g))}{k}" for k, g in itertools.groupby(sequence)
     )
