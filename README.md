@@ -3,6 +3,7 @@
 Solutions of puzzles from [Advent of Code 2015](https://adventofcode.com/2015).
 
 ```
+                  >O<<O<<@>>@<<
                  >O<<<*<<<o<<@<<
                 >>o>o>o<<@<<<@>@<
                >o<<<o>>>*<<@>>>o<<
