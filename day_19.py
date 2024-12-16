@@ -4,8 +4,8 @@ __author__ = "Martino M. L. Pulici <martinomarelakota@yahoo.it>"
 __date__ = "2024"
 __license__ = "MIT"
 
-from functools import cache
 import re
+from functools import cache
 
 
 def main():
@@ -27,9 +27,7 @@ def star_1(puzzle_input):
             i, j = index.start(), index.end()
             molecules.add(molecule[:i] + v + molecule[j:])
 
-    n_molecules = len(molecules)
-
-    return n_molecules
+    return len(molecules)
 
 
 def star_2(puzzle_input):

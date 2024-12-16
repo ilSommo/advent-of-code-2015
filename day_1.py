@@ -16,9 +16,7 @@ def main():
 
 def star_1(puzzle_input):
     """Solve first puzzle."""
-    floor = puzzle_input.count("(") - puzzle_input.count(")")
-
-    return floor
+    return puzzle_input.count("(") - puzzle_input.count(")")
 
 
 def star_2(puzzle_input):

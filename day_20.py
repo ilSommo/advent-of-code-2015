@@ -4,8 +4,8 @@ __author__ = "Martino M. L. Pulici <martinomarelakota@yahoo.it>"
 __date__ = "2024"
 __license__ = "MIT"
 
-from functools import cache
 import itertools
+from functools import cache
 
 
 def main():

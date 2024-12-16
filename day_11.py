@@ -5,6 +5,7 @@ __date__ = "2024"
 __license__ = "MIT"
 
 import itertools
+from functools import cache
 
 
 def main():
@@ -16,6 +17,7 @@ def main():
     print(star_2(puzzle_input))
 
 
+@cache
 def star_1(puzzle_input):
     """Solve first puzzles."""
     numbers = str_to_list(puzzle_input)
@@ -29,9 +31,7 @@ def star_1(puzzle_input):
     while not test_password(numbers):
         numbers = increase_password(numbers)
 
-    string = list_to_str(numbers)
-
-    return string
+    return list_to_str(numbers)
 
 
 def star_2(puzzle_input):
@@ -42,9 +42,7 @@ def star_2(puzzle_input):
     numbers = increase_password(numbers)
     string = list_to_str(numbers)
 
-    string = star_1(string)
-
-    return string
+    return star_1(string)
 
 
 def increase_password(password):
@@ -67,16 +65,12 @@ def increase_password(password):
 
 def list_to_str(numbers):
     """Convert list of numbers to string."""
-    string = "".join(chr(number) for number in numbers)
-
-    return string
+    return "".join(chr(number) for number in numbers)
 
 
 def str_to_list(string):
     """Convert string to list of numbers."""
-    numbers = [ord(letter) for letter in string]
-
-    return numbers
+    return [ord(letter) for letter in string]
 
 
 def test_password(password):

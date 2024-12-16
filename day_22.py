@@ -4,9 +4,9 @@ __author__ = "Martino M. L. Pulici <martinomarelakota@yahoo.it>"
 __date__ = "2024"
 __license__ = "MIT"
 
+import copy
 from collections import deque
 from dataclasses import dataclass, field
-import copy
 
 COSTS = (53, 73, 113, 173, 229)
 

@@ -8,7 +8,7 @@ __license__ = "MIT"
 def main():
     """Solve day 2 puzzles."""
     with open("data/day_2.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -38,9 +38,7 @@ def star_2(puzzle_input):
 
 def get_dimensions(present):
     """Get sorted dimensions of present."""
-    d0, d1, d2 = tuple(sorted(int(dim) for dim in present.split("x")[:3]))
-
-    return d0, d1, d2
+    return tuple(sorted(int(dim) for dim in present.split("x")[:3]))
 
 
 if __name__ == "__main__":

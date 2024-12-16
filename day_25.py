@@ -15,32 +15,15 @@ def main():
 
 def star_1(puzzle_input):
     """Solve first puzzles."""
-    row, column = load_coordinates(puzzle_input)
+    r, c = load_coordinates(puzzle_input)
 
-    index = get_index(row, column)
+    index = int((c**2 + 2 * c * r - c + r**2 - 3 * r + 2) / 2)
     value = 20151125
 
     for _ in range(index - 1):
         value = value * 252533 % 33554393
 
     return value
-
-
-def get_index(r, c):
-    """Get index from coordinates."""
-    index = int((c**2 + 2 * c * r - c + r**2 - 3 * r + 2) / 2)
-
-    return index
-
-
-def get_value(index):
-    """Get value from index."""
-    if index == 1:
-        return 20151125
-
-    index = get_value(index - 1) * 252533 % 33554393
-
-    return index
 
 
 def load_coordinates(puzzle_input):

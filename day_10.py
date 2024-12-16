@@ -5,6 +5,7 @@ __date__ = "2024"
 __license__ = "MIT"
 
 import itertools
+from functools import cache
 
 
 def main():
@@ -36,13 +37,12 @@ def star_2(puzzle_input):
     return len(sequence)
 
 
+@cache
 def look_and_say(sequence):
     """Execute look and say process on sequence."""
-    new_sequence = "".join(
+    return "".join(
         f"{len(list(g))}{k}" for k, g in itertools.groupby(sequence)
     )
-
-    return new_sequence
 
 
 if __name__ == "__main__":

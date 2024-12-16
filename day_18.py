@@ -10,7 +10,7 @@ import itertools
 def main():
     """Solve day 18 puzzles."""
     with open("data/day_18.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -25,9 +25,7 @@ def star_1(puzzle_input):
     for _ in range(100):
         lights = compute_step(lights, (n_rows, n_cols))
 
-    n_lights = len(lights)
-
-    return n_lights
+    return len(lights)
 
 
 def star_2(puzzle_input):
@@ -45,9 +43,7 @@ def star_2(puzzle_input):
     for _ in range(100):
         lights = compute_step(lights, (n_rows, n_cols)) | always_on
 
-    n_lights = len(lights)
-
-    return n_lights
+    return len(lights)
 
 
 def compute_step(lights, dims):
@@ -74,24 +70,20 @@ def compute_step(lights, dims):
 
 def get_neighbors(light):
     """Get all neighbors of a light."""
-    neighbors = {
+    return {
         light + (i + j * 1j)
         for i, j in itertools.product(range(-1, 2), repeat=2)
     } - {light}
 
-    return neighbors
-
 
 def load_map(puzzle_input):
     """Load map from puzzle_input."""
-    lights = {
+    return {
         i + j * 1j
         for i, line in enumerate(puzzle_input)
         for j, elem in enumerate(line)
         if elem == "#"
     }
-
-    return lights
 
 
 if __name__ == "__main__":

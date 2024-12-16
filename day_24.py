@@ -25,9 +25,7 @@ def star_1(puzzle_input):
     combinations = create_combinations(packages, weight)
     combinations.sort(key=math.prod)
 
-    quantum_entanglement = math.prod(combinations[0])
-
-    return quantum_entanglement
+    return math.prod(combinations[0])
 
 
 def star_2(puzzle_input):
@@ -38,9 +36,7 @@ def star_2(puzzle_input):
     combinations = create_combinations(packages, weight)
     combinations.sort(key=math.prod)
 
-    quantum_entanglement = math.prod(combinations[0])
-
-    return quantum_entanglement
+    return math.prod(combinations[0])
 
 
 def create_combinations(packages, weight):
@@ -63,9 +59,7 @@ def create_combinations(packages, weight):
 
 def load_packages(puzzle_input):
     """Load packages from input."""
-    packages = tuple(int(line) for line in puzzle_input)
-
-    return packages
+    return tuple(int(line) for line in puzzle_input)
 
 
 if __name__ == "__main__":

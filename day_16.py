@@ -21,7 +21,7 @@ COMPOUNDS = {
 def main():
     """Solve day 16 puzzles."""
     with open("data/day_16.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))

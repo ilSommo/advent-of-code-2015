@@ -10,7 +10,7 @@ from collections import defaultdict
 def main():
     """Solve day 14 puzzles."""
     with open("data/day_14.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -20,11 +20,7 @@ def star_1(puzzle_input):
     """Solve first puzzles."""
     reindeers = get_reindeers(puzzle_input)
 
-    max_distance = max(
-        compute_distance(reindeer, 2503) for reindeer in reindeers
-    )
-
-    return max_distance
+    return max(compute_distance(reindeer, 2503) for reindeer in reindeers)
 
 
 def star_2(puzzle_input):
@@ -46,9 +42,7 @@ def star_2(puzzle_input):
         for leader in leaders:
             points[leader] += 1
 
-    max_points = max(points.values())
-
-    return max_points
+    return max(points.values())
 
 
 def compute_distance(reindeer, seconds):
@@ -56,25 +50,21 @@ def compute_distance(reindeer, seconds):
     speed, fly_time, rest_time = reindeer
     cycle_time = fly_time + rest_time
 
-    total = (
+    return (
         seconds // cycle_time * speed * fly_time
         + min(seconds % cycle_time, fly_time) * speed
     )
 
-    return total
-
 
 def get_reindeers(puzzle_input):
     """Get reindeers from puzzle input."""
-    reindeers = tuple(
+    return tuple(
         tuple(
             int(value)
             for value in (line.split()[3], line.split()[6], line.split()[13])
         )
         for line in puzzle_input
     )
-
-    return reindeers
 
 
 if __name__ == "__main__":

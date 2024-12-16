@@ -10,7 +10,7 @@ import re
 def main():
     """Solve day 5 puzzles."""
     with open("data/day_5.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -18,16 +18,12 @@ def main():
 
 def star_1(puzzle_input):
     """Solve first puzzle."""
-    nice_strings = sum(check_niceness_1(line) for line in puzzle_input)
-
-    return nice_strings
+    return sum(check_niceness_1(line) for line in puzzle_input)
 
 
 def star_2(puzzle_input):
     """Solve second puzzle."""
-    nice_strings = sum(check_niceness_2(line) for line in puzzle_input)
-
-    return nice_strings
+    return sum(check_niceness_2(line) for line in puzzle_input)
 
 
 def check_niceness_1(string):

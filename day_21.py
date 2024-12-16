@@ -4,8 +4,8 @@ __author__ = "Martino M. L. Pulici <martinomarelakota@yahoo.it>"
 __date__ = "2024"
 __license__ = "MIT"
 
-from functools import cache
 import itertools
+from functools import cache
 
 ARMOR = ((13, 0, 1), (31, 0, 2), (53, 0, 3), (75, 0, 4), (102, 0, 5))
 RINGS = (
@@ -37,9 +37,7 @@ def star_1(puzzle_input):
 
     for combination in combinations:
         if play(combination, boss):
-            gold = sum(item[0] for item in combination)
-
-            return gold
+            return sum(item[0] for item in combination)
 
     return 0
 
@@ -55,9 +53,7 @@ def star_2(puzzle_input):
 
     for combination in combinations:
         if not play(combination, boss):
-            gold = sum(item[0] for item in combination)
-
-            return gold
+            return sum(item[0] for item in combination)
 
     return 0
 

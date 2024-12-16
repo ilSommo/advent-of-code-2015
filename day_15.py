@@ -8,7 +8,7 @@ __license__ = "MIT"
 def main():
     """Solve day 15 puzzles."""
     with open("data/day_15.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -25,9 +25,7 @@ def star_1(puzzle_input):
                 l = 100 - i - j - k
                 scores.append(compute_score(ingredients, (i, j, k, l)))
 
-    max_score = max(scores)
-
-    return max_score
+    return max(scores)
 
 
 def star_2(puzzle_input):
@@ -48,9 +46,7 @@ def star_2(puzzle_input):
                 ):
                     scores.append(compute_score(ingredients, (i, j, k, l)))
 
-    max_score = max(scores)
-
-    return max_score
+    return max(scores)
 
 
 def compute_score(ingredients, quantities):

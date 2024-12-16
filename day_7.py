@@ -8,7 +8,7 @@ __license__ = "MIT"
 def main():
     """Solve day 7 puzzles."""
     with open("data/day_7.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -17,7 +17,7 @@ def main():
 def star_1(puzzle_input):
     """Solve first puzzle."""
     wires = {}
-    puzzle = puzzle_input.copy()
+    puzzle = list(puzzle_input)
 
     while puzzle:
         line = puzzle.pop(0)
@@ -36,7 +36,7 @@ def star_1(puzzle_input):
 def star_2(puzzle_input):
     """Solve second puzzle."""
     wires = {"b": star_1(puzzle_input)}
-    puzzle = puzzle_input.copy()
+    puzzle = list(puzzle_input)
 
     while puzzle:
         line = puzzle.pop(0)

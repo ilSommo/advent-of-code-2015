@@ -21,18 +21,14 @@ def star_1(puzzle_input):
     """Solve first puzzles."""
     data = flatten(json.loads(puzzle_input))
 
-    total = sum(elem if isinstance(elem, int) else 0 for elem in data)
-
-    return total
+    return sum(elem if isinstance(elem, int) else 0 for elem in data)
 
 
 def star_2(puzzle_input):
     """Solve second puzzle."""
     data = flatten_red(json.loads(puzzle_input))
 
-    total = sum(elem if isinstance(elem, int) else 0 for elem in data)
-
-    return total
+    return sum(elem if isinstance(elem, int) else 0 for elem in data)
 
 
 def flatten(data):

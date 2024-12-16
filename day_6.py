@@ -10,7 +10,7 @@ import itertools
 def main():
     """Solve day 6 puzzles."""
     with open("data/day_6.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -19,10 +19,9 @@ def main():
 def star_1(puzzle_input):
     """Solve first puzzle."""
     grid = [1000 * [-1] for _ in range(1000)]
+    instructions = load_instructions(puzzle_input)
 
-    for line in puzzle_input:
-        action, x_range, y_range = parse(line)
-
+    for action, x_range, y_range in instructions:
         match action:
             case "toggle":
                 for i, j in itertools.product(x_range, y_range):
@@ -36,18 +35,15 @@ def star_1(puzzle_input):
                 for i, j in itertools.product(x_range, y_range):
                     grid[i][j] = -1
 
-    total = sum(row.count(1) for row in grid)
-
-    return total
+    return sum(row.count(1) for row in grid)
 
 
 def star_2(puzzle_input):
     """Solve second puzzle."""
     grid = [1000 * [0] for _ in range(1000)]
+    instructions = load_instructions(puzzle_input)
 
-    for line in puzzle_input:
-        action, x_range, y_range = parse(line)
-
+    for action, x_range, y_range in instructions:
         match action:
             case "toggle":
                 for i, j in itertools.product(x_range, y_range):
@@ -61,23 +57,26 @@ def star_2(puzzle_input):
                 for i, j in itertools.product(x_range, y_range):
                     grid[i][j] = max(0, grid[i][j] - 1)
 
-    total = sum(sum(row) for row in grid)
-
-    return total
+    return sum(sum(row) for row in grid)
 
 
-def parse(line):
-    """Parse an instruction line."""
-    split_line = line.split()
-    action, start, end = (
-        split_line[-4],
-        split_line[-3].split(","),
-        split_line[-1].split(","),
-    )
-    x_range = range(int(start[0]), int(end[0]) + 1)
-    y_range = range(int(start[1]), int(end[1]) + 1)
+def load_instructions(puzzle_input):
+    """Load instructions from input."""
+    instructions = []
 
-    return action, x_range, y_range
+    for line in puzzle_input:
+        split_line = line.split()
+        action, start, end = (
+            split_line[-4],
+            split_line[-3].split(","),
+            split_line[-1].split(","),
+        )
+        x_range = range(int(start[0]), int(end[0]) + 1)
+        y_range = range(int(start[1]), int(end[1]) + 1)
+
+        instructions.append([action, x_range, y_range])
+
+    return tuple(instructions)
 
 
 if __name__ == "__main__":

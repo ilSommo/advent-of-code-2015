@@ -4,14 +4,14 @@ __author__ = "Martino M. L. Pulici <martinomarelakota@yahoo.it>"
 __date__ = "2024"
 __license__ = "MIT"
 
-from collections import defaultdict
 import itertools
+from collections import defaultdict
 
 
 def main():
     """Solve day 13 puzzles."""
     with open("data/day_13.txt", encoding="ascii") as input_file:
-        puzzle_input = [line.rstrip() for line in input_file.readlines()]
+        puzzle_input = tuple(line.rstrip() for line in input_file.readlines())
 
     print(star_1(puzzle_input))
     print(star_2(puzzle_input))
@@ -20,12 +20,11 @@ def main():
 def star_1(puzzle_input):
     """Solve first puzzles."""
     attendees = parse(puzzle_input)
-    happiness = max(
+
+    return max(
         compute_happiness(arrangement, attendees)
         for arrangement in itertools.permutations(attendees.keys())
     )
-
-    return happiness
 
 
 def star_2(puzzle_input):
@@ -37,23 +36,19 @@ def star_2(puzzle_input):
         attendees["myself"][attendee] = 0
         preferences["myself"] = 0
 
-    happiness = max(
+    return max(
         compute_happiness(arrangement, attendees)
         for arrangement in itertools.permutations(attendees.keys())
     )
 
-    return happiness
-
 
 def compute_happiness(arrangement, attendees):
     """Compute the total happiness of a given arrangement."""
-    happiness = sum(
+    return sum(
         attendees[attendee][arrangement[(i - 1) % len(arrangement)]]
         + attendees[attendee][arrangement[(i + 1) % len(arrangement)]]
         for i, attendee in enumerate(arrangement)
     )
-
-    return happiness
 
 
 def parse(puzzle_input):
